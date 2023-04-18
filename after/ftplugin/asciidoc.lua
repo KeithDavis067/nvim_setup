@@ -1,4 +1,3 @@
-vim.opt.background = "light"
 vim.opt.linebreak = true
 vim.cmd("SoftWrapMode")
 vim.g.asciidoctor_extensions = { "asciidoctor-html5s" }

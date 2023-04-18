@@ -6,5 +6,3 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*.adoc" },
   command = "Asciidoctor2HTML",
 })
-
-vim.cmd([[autocmd BufWritePre * html vim.lsp.buf.format()]])
