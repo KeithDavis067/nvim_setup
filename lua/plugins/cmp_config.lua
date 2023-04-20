@@ -1,15 +1,9 @@
--- nvim-cmp configs
 return {
-  -- customize nvim-cmp configs
-  -- Use <tab> for completion and snippets (supertab)
-  -- first: disable default <tab> and <s-tab> behavior in LuaSnip
-  {
-    "L3MON4D3/LuaSnip",
-    keys = function()
-      return {}
-    end,
-  },
-  -- then: setup supertab in cmp
+  "L3MON4D3/LuaSnip",
+  keys = function()
+    return {}
+  end,
+
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -26,26 +20,16 @@ return {
       local luasnip = require("luasnip")
       local cmp = require("cmp")
 
-      -- This is reaaaally not easy to setup :D
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<CR>"] = cmp.mapping(function(fallback)
-          if cmp.get_active_entry() then
-            cmp.confirm({ select = true })
-          else
-            fallback()
-          end
-        end, { "i", "c" }),
         ["<Tab>"] = cmp.mapping(function(fallback)
-          -- If it's a snippet then jump between fields
-          if luasnip.expand_or_jumpable() then
+          if cmp.visible() then
+            cmp.select_next_item()
+          -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
+          -- they way you will only jump inside the snippet region
+          elseif luasnip.expand_or_locally_jumpable() then
             luasnip.expand_or_jump()
-          -- otherwise if the completion pop is visible then complete
-          elseif cmp.visible() then
-            cmp.confirm({ select = false })
-          -- if the popup is not visible then open the popup
           elseif has_words_before() then
             cmp.complete()
-          -- otherwise fallback
           else
             fallback()
           end
