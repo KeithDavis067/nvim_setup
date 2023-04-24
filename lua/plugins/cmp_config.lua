@@ -21,6 +21,13 @@ return {
       local cmp = require("cmp")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        ["<Esc>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.abort()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
@@ -30,6 +37,7 @@ return {
             luasnip.expand_or_jump()
           elseif has_words_before() then
             cmp.complete()
+            cmp.select_prev_item()
           else
             fallback()
           end
@@ -43,6 +51,15 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+      })
+
+      cmp.setup({
+        completion = {
+          autocomplete = false,
+        },
+        sources = {
+          { name = "neorg" },
+        },
       })
     end,
   },
