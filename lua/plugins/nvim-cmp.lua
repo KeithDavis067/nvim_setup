@@ -1,8 +1,10 @@
 return {
-  "L3MON4D3/LuaSnip",
-  keys = function()
-    return {}
-  end,
+  {
+    "L3MON4D3/LuaSnip",
+    keys = function()
+      return {}
+    end,
+  },
 
   {
     "hrsh7th/nvim-cmp",
@@ -21,23 +23,15 @@ return {
       local cmp = require("cmp")
 
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
-        ["<Esc>"] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            cmp.abort()
-          else
-            fallback()
-          end
-        end, { "i", "s" }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
           -- they way you will only jump inside the snippet region
-          elseif luasnip.expand_or_locally_jumpable() then
+          elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           elseif has_words_before() then
             cmp.complete()
-            cmp.select_prev_item()
           else
             fallback()
           end
@@ -51,15 +45,6 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-      })
-
-      cmp.setup({
-        completion = {
-          autocomplete = false,
-        },
-        sources = {
-          { name = "neorg" },
-        },
       })
     end,
   },
