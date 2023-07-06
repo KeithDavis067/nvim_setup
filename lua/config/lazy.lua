@@ -44,3 +44,7 @@ require("lazy").setup({
     },
   },
 })
+
+vim.cmd("colorscheme kanagawa-wave")
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
