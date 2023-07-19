@@ -18,6 +18,9 @@ return {
           engine = "nvim-cmp",
         },
       },
+      ["core.esupports.indent"] = {
+        config = {},
+      },
     },
   },
   dependencies = { { "nvim-lua/plenary.nvim" } },
