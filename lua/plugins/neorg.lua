@@ -19,7 +19,9 @@ return {
         },
       },
       ["core.esupports.indent"] = {
-        config = {},
+        config = {
+          format_on_escape = true,
+        },
       },
     },
   },
