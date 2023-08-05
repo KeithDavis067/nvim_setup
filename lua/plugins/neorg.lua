@@ -18,6 +18,11 @@ return {
           engine = "nvim-cmp",
         },
       },
+      ["core.esupports.indent"] = {
+        config = {
+          format_on_escape = true,
+        },
+      },
     },
   },
   dependencies = { { "nvim-lua/plenary.nvim" } },
