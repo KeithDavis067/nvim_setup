@@ -23,6 +23,8 @@ return {
           format_on_escape = true,
         },
       },
+      ["core.tempus"] = {},
+      ["core.ui.calendar"] = {},
     },
   },
   dependencies = { { "nvim-lua/plenary.nvim" } },
