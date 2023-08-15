@@ -45,6 +45,13 @@ return {
             fallback()
           end
         end, { "i", "s" }),
+        ["<CR>"] = cmp.mapping(function(fallback)
+          if cmp.get_active_entry() then
+            cmp.confirm({ select = true })
+          else
+            fallback()
+          end
+        end, { "i", "c" }),
       })
     end,
   },
