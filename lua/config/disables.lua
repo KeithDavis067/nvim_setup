@@ -1,1 +1,3 @@
-return { "echasnovski/mini.pairs", enabled = false }
+return {
+  { "echasnovski/mini.pairs", enabled = false },
+}
