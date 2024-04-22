@@ -45,6 +45,7 @@ require("lazy").setup({
   },
 })
 
-vim.cmd("colorscheme melange")
+vim.cmd("colorscheme kanagawa-dragon")
+vim.opt.background = "dark"
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
