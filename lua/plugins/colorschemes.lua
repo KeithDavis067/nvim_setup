@@ -1,6 +1,6 @@
 return {
   "savq/melange-nvim",
   "rebelot/kanagawa.nvim",
-  "sainnhe/everforest",
+  "Biscuit-Colorscheme/nvim",
   { "catppuccin/nvim", name = "catppuccin" },
 }

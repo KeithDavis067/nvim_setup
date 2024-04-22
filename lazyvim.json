@@ -1,6 +1,10 @@
 {
   "extras": [
+<<<<<<< HEAD
     "lazyvim.plugins.extras.coding.codeium"
+=======
+    "lazyvim.plugins.extras.lang.json"
+>>>>>>> 12773fc4573a8bb3cb96da0898fb83042726c358
   ],
   "news": {
     "NEWS.md": "3314"

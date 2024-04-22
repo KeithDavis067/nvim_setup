@@ -26,7 +26,7 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "tokyonight", "habamax", "everforest" } },
+  install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
@@ -45,8 +45,7 @@ require("lazy").setup({
   },
 })
 
--- vim.cmd("colorscheme kanagawa-wave")
-vim.cmd("let g:everforest_background = 'hard'")
-vim.cmd("colorscheme everforest")
+vim.cmd("colorscheme kanagawa-dragon")
+vim.opt.background = "dark"
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
